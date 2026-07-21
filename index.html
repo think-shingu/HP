@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Think新宮 | 学生団体</title>
+<meta name="description" content="Think新宮は、和歌山県新宮市の未来を学生の視点で考え、地域とつながる活動を行う学生団体です。">
+<style>
+:root {
+  --green:#3BAC7D;
+  --green-d:#1D7A56;
+  --green-m:#2C9468;
+  --green-l:#6ECBA0;
+  --green-bg:#F0FAF5;
+  --green-bg2:#E3F5EC;
+  --green-bd:#B8E4CF;
+  --navy:#1A3848;
+  --text:#2A3B30;
+  --text-s:#5A6D62;
+  --text-m:#8A9E94;
+  --white:#FFFFFF;
+  --off:#FAFCF9;
+  --bd:#DDE8E3;
+  --r:6px;
+  --rl:12px;
+  --sh:0 2px 16px rgba(27,120,82,.09);
+  --shm:0 6px 28px rgba(27,120,82,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  color:var(--text);background:var(--white);line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;object-fit:cover;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1080px;margin:0 auto;padding:0 40px;}
+section{padding:88px 0;}
+
+.label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.75rem;font-weight:700;letter-spacing:.12em;
+  color:var(--green);text-transform:uppercase;
+  margin-bottom:10px;
+}
+.label::before{content:"";width:18px;height:2px;background:var(--green);border-radius:1px;}
+
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.35;margin-bottom:10px;}
+.section-sub{color:var(--text-s);max-width:520px;margin-bottom:48px;font-size:.97rem;}
+
+.btn{
+  display:inline-block;padding:12px 30px;border-radius:var(--r);
+  font-weight:700;font-size:.92rem;cursor:pointer;border:none;font-family:inherit;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.btn-green{
+  background:var(--green);color:#fff;
+  box-shadow:0 4px 14px rgba(59,172,125,.3);
+}
+.btn-green:hover{background:var(--green-m);transform:translateY(-2px);box-shadow:0 8px 22px rgba(59,172,125,.35);}
+.btn-ghost{
+  background:transparent;color:var(--white);
+  border:2px solid rgba(255,255,255,.7);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px);}
+.btn-outline{
+  background:transparent;color:var(--green);
+  border:1.5px solid var(--green);
+}
+.btn-outline:hover{background:var(--green-bg);transform:translateY(-2px);}
+
+/* ── HEADER ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--bd);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 40px;max-width:1080px;margin:0 auto;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-size:1.15rem;font-weight:900;color:var(--text);letter-spacing:.02em;
+}
+.logo-mark{
+  width:32px;height:32px;border-radius:6px;
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.82rem;font-weight:900;letter-spacing:-.02em;
+}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{
+  font-size:.87rem;font-weight:600;color:var(--text-s);
+  padding:4px 0;position:relative;transition:color .2s;
+}
+.nav-links a::after{
+  content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;
+  background:var(--green);border-radius:1px;
+  transform:scaleX(0);transition:transform .2s;transform-origin:left;
+}
+.nav-links a:hover{color:var(--green);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-cta{
+  background:var(--green);color:#fff;
+  padding:9px 22px;border-radius:var(--r);
+  font-size:.85rem;font-weight:700;
+  box-shadow:0 3px 10px rgba(59,172,125,.25);
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:var(--green-m);transform:translateY(-1px);}
+.menu-btn{
+  display:none;background:none;border:none;cursor:pointer;
+  width:38px;height:38px;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+}
+.menu-btn span{width:20px;height:1.5px;background:var(--text);border-radius:1px;transition:.3s;}
+
+/* ── HERO MOSAIC ── */
+.hero{
+  position:relative;height:100vh;min-height:600px;overflow:hidden;
+}
+.mosaic{
+  position:absolute;inset:0;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  grid-template-rows:repeat(3,1fr);
+}
+.mosaic img{width:100%;height:100%;object-fit:cover;}
+.mosaic-overlay{
+  position:absolute;inset:0;
+  background:rgba(20,40,30,.48);
+}
+.hero-body{
+  position:absolute;inset:0;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 24px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.35);
+  backdrop-filter:blur(6px);
+  color:#fff;padding:7px 18px;border-radius:999px;
+  font-size:.8rem;font-weight:700;margin-bottom:24px;
+  letter-spacing:.06em;
+}
+.hero-badge::before{
+  content:"";width:7px;height:7px;border-radius:50%;
+  background:var(--green-l);
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.4rem);font-weight:900;
+  color:#fff;line-height:1.35;margin-bottom:16px;
+  text-shadow:0 2px 20px rgba(0,0,0,.3);
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--green-l),#A8F0C8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-lead{
+  color:rgba(255,255,255,.85);font-size:1rem;
+  max-width:520px;margin:0 auto 36px;line-height:1.9;
+}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.hero-scroll{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:.1em;z-index:1;
+  animation:bob 2.5s ease-in-out infinite;
+}
+.hero-scroll::after{
+  content:"";width:1px;height:40px;background:rgba(255,255,255,.4);
+  display:block;margin-top:4px;
+}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+/* ── STATS ── */
+.stats-bar{background:var(--white);border-bottom:1px solid var(--bd);}
+.stats-bar .container{
+  display:flex;justify-content:center;gap:0;padding:0 40px;
+}
+.stat-item{
+  flex:1;max-width:220px;padding:28px 24px;text-align:center;
+  border-right:1px solid var(--bd);
+}
+.stat-item:last-child{border-right:none;}
+.stat-item b{
+  display:block;font-size:2rem;font-weight:900;color:var(--green);
+  line-height:1.1;margin-bottom:4px;
+}
+.stat-item span{font-size:.8rem;color:var(--text-s);font-weight:600;}
+
+/* ── ABOUT ── */
+.about{background:var(--off);}
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.aphoto{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);}
+.aphoto:first-child{grid-column:span 2;aspect-ratio:16/9;}
+.aphoto:not(:first-child){aspect-ratio:1;}
+.aphoto img{width:100%;height:100%;}
+
+.mission{display:grid;gap:0;margin-top:28px;}
+.mission-item{
+  display:flex;gap:18px;padding:18px 0;
+  border-bottom:1px solid var(--bd);
+  transition:background .2s;
+}
+.mission-item:first-child{border-top:1px solid var(--bd);}
+.m-num{
+  flex:none;font-size:.7rem;font-weight:800;letter-spacing:.08em;
+  color:var(--green);padding-top:4px;min-width:24px;
+}
+.m-body h3{font-size:.98rem;font-weight:700;margin-bottom:3px;}
+.m-body p{color:var(--text-s);font-size:.88rem;line-height:1.75;}
+
+/* ── ACTIVITIES ── */
+.activities{background:var(--green-bg);}
+.act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.act-card{
+  background:var(--white);border-radius:var(--rl);
+  overflow:hidden;box-shadow:var(--sh);
+  transition:transform .22s,box-shadow .22s;
+  border:1px solid var(--bd);
+}
+.act-card:hover{transform:translateY(-5px);box-shadow:var(--shm);}
+.act-card-top{
+  height:140px;display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
+}
+.bg1{background:linear-gradient(135deg,#E8F8EF,#C8EDDA);}
+.bg2{background:linear-gradient(135deg,#EEF5FF,#C8DAEE);}
+.bg3{background:linear-gradient(135deg,#FFF4EC,#F5D9C0);}
+.bg4{background:linear-gradient(135deg,#F3EEF9,#D9CDF5);}
+.bg5{background:linear-gradient(135deg,#E8F8EF,#BBE8D0);}
+.bg6{background:linear-gradient(135deg,#FEF5E7,#F5DEB0);}
+.act-body{padding:20px 22px 22px;}
+.act-body h3{font-size:.97rem;font-weight:800;margin-bottom:6px;}
+.act-body p{color:var(--text-s);font-size:.85rem;line-height:1.75;margin-bottom:12px;}
+.act-tag{
+  display:inline-block;padding:3px 10px;border-radius:3px;
+  font-size:.73rem;font-weight:700;
+  background:var(--green-bg2);color:var(--green-d);
+  border:1px solid var(--green-bd);
+}
+
+/* Timeline */
+.tl-wrap{
+  margin-top:56px;background:var(--white);border-radius:var(--rl);
+  padding:36px 40px;border:1px solid var(--bd);box-shadow:var(--sh);
+}
+.tl-head{font-size:1.1rem;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.tl-head::before{content:"";width:4px;height:22px;background:var(--green);border-radius:2px;}
+.tl-row{
+  display:grid;grid-template-columns:100px 1fr;gap:16px;
+  padding:14px 0;border-bottom:1px solid var(--bd);
+  align-items:start;
+}
+.tl-row:last-child{border-bottom:none;}
+.tl-dt{
+  font-size:.8rem;font-weight:700;color:var(--green);
+  background:var(--green-bg2);padding:3px 10px;border-radius:3px;
+  display:inline-block;white-space:nowrap;
+}
+.tl-tx b{font-size:.93rem;}
+.tl-tx p{margin:2px 0 0;color:var(--text-s);font-size:.85rem;}
+
+/* ── PHOTO STRIP ── */
+.strip{overflow:hidden;background:var(--white);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);}
+.strip-inner{
+  display:flex;gap:10px;padding:14px 0;
+  animation:scroll-l 32s linear infinite;width:max-content;
+}
+.strip:hover .strip-inner{animation-play-state:paused;}
+@keyframes scroll-l{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.s-item{
+  flex:none;width:220px;height:148px;border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--bd);
+  transition:transform .25s;
+}
+.s-item:hover{transform:scale(1.04);}
+.s-item img{width:100%;height:100%;}
+
+/* ── GALLERY ── */
+.gallery{background:var(--off);}
+.gal-grid{columns:4;gap:12px;}
+.gal-item{break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:transform .25s;}
+.gal-item:hover{transform:scale(1.02);}
+.gal-item img{width:100%;display:block;}
+
+/* ── MEDIA ZONES ── */
+.media{padding:0;}
+.media-header{padding:88px 0 56px;background:var(--off);}
+
+/* shared zone styles */
+.mz{padding:72px 0;}
+.mz-inner{
+  max-width:1080px;margin:0 auto;padding:0 40px;
+  display:grid;gap:56px;align-items:center;
+}
+.mz-plt-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.72rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:14px;
+  padding:5px 12px;border-radius:4px;
+}
+.mz-title{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:900;margin-bottom:12px;line-height:1.3;}
+.mz-lead{font-size:.95rem;line-height:1.85;margin-bottom:24px;}
+.mz-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 26px;border-radius:var(--r);
+  font-weight:800;font-size:.9rem;border:none;cursor:pointer;
+  font-family:inherit;text-decoration:none;
+  transition:transform .15s,box-shadow .15s;
+}
+.mz-cta:hover{transform:translateY(-2px);}
+.mz-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.73rem;font-weight:700;
+  padding:4px 12px;border-radius:3px;margin:0 6px 6px 0;
+}
+
+/* ── YouTube Zone ── */
+.mz-yt{background:#0F0F0F;color:#fff;}
+.mz-yt .mz-inner{grid-template-columns:1.05fr 1fr;}
+.mz-yt .mz-plt-label{background:rgba(255,0,0,.15);color:#FF4444;}
+.mz-yt .mz-lead{color:rgba(255,255,255,.7);}
+.mz-yt .mz-tag{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);}
+.yt-thumb{
+  position:relative;aspect-ratio:16/9;
+  border-radius:var(--rl);overflow:hidden;
+  background:#000;
+  box-shadow:0 24px 64px rgba(255,0,0,.18);
+}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .3s;}
+.yt-thumb:hover img{opacity:.55;}
+.yt-thumb-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.22);
+  display:flex;align-items:center;justify-content:center;
+}
+.yt-play{
+  width:72px;height:50px;background:#FF0000;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(255,0,0,.5);
+  transition:transform .2s,box-shadow .2s;
+}
+.yt-thumb:hover .yt-play{transform:scale(1.1);box-shadow:0 10px 32px rgba(255,0,0,.6);}
+.mz-yt .mz-cta{background:#FF0000;color:#fff;box-shadow:0 4px 16px rgba(255,0,0,.35);}
+.mz-yt .mz-cta:hover{box-shadow:0 8px 24px rgba(255,0,0,.45);}
+
+/* ── Instagram Zone ── */
+.mz-ig{background:var(--white);}
+.mz-ig .mz-inner{grid-template-columns:1fr 1.15fr;}
+.ig-plt-label{background:linear-gradient(90deg,rgba(245,133,41,.15),rgba(193,53,132,.15));color:#C13584;}
+.ig-photos{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
+  border-radius:var(--rl);overflow:hidden;
+}
+.ig-photo{aspect-ratio:1;overflow:hidden;}
+.ig-photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.ig-photo:hover img{transform:scale(1.06);}
+.ig-profile{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:20px;
+}
+.ig-avatar{
+  width:52px;height:52px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,#F9CE34,#EE2A7B,#6228D7);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(193,53,132,.25);
+}
+.ig-avatar svg{filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));}
+.ig-handle{font-size:1rem;font-weight:800;}
+.ig-stats{display:flex;gap:20px;margin-bottom:16px;}
+.ig-stat b{display:block;font-size:1.1rem;font-weight:900;}
+.ig-stat span{font-size:.75rem;color:var(--text-s);}
+.mz-ig .mz-lead{color:var(--text-s);}
+.mz-ig .mz-cta{
+  background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);
+  color:#fff;box-shadow:0 4px 16px rgba(193,53,132,.3);
+}
+
+/* ── Note Zone ── */
+.mz-note{background:#F0FAF7;}
+.mz-note .mz-inner{grid-template-columns:1fr 1.2fr;}
+.note-plt-label{background:rgba(61,170,151,.15);color:#3DAA97;}
+.mz-note .mz-lead{color:var(--text-s);}
+.note-articles{display:grid;gap:12px;}
+.note-card{
+  background:var(--white);border-radius:var(--r);
+  padding:18px 20px;border:1px solid var(--bd);
+  box-shadow:var(--sh);
+  display:flex;align-items:center;gap:16px;
+  text-decoration:none;color:inherit;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.note-card:hover{transform:translateX(5px);box-shadow:var(--shm);border-color:var(--green-bd);}
+.note-card-num{
+  flex:none;width:36px;height:36px;border-radius:8px;
+  background:#3DAA97;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:900;
+}
+.note-card-body{}
+.note-card-label{font-size:.7rem;font-weight:700;color:#3DAA97;margin-bottom:3px;}
+.note-card-title{font-size:.9rem;font-weight:700;line-height:1.4;}
+.mz-note .mz-cta{background:#3DAA97;color:#fff;box-shadow:0 4px 14px rgba(61,170,151,.3);}
+.mz-note .mz-cta:hover{box-shadow:0 8px 20px rgba(61,170,151,.4);}
+
+/* responsive */
+@media(max-width:860px){
+  .mz-inner,.mz-yt .mz-inner,.mz-ig .mz-inner,.mz-note .mz-inner{
+    grid-template-columns:1fr;
+  }
+  .mz{padding:56px 0;}
+  .ig-photos{grid-template-columns:repeat(3,1fr);}
+  .media-header{padding:60px 0 40px;}
+}
+
+/* ── MEMBERS ── */
+.members{background:var(--off);}
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.mem-card{text-align:center;}
+.mem-av{
+  width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  margin-bottom:14px;box-shadow:var(--sh);
+  border:3px solid var(--white);
+  outline:2px solid var(--green-bd);
+  display:flex;align-items:center;justify-content:center;
+}
+.ag1{background:linear-gradient(160deg,#3BAC7D,#6ECBA0);}
+.ag2{background:linear-gradient(160deg,#2472A8,#5AA0D0);}
+.ag3{background:linear-gradient(160deg,#6BAC3B,#A0CB6E);}
+.ag4{background:linear-gradient(160deg,#AC6E3B,#CBA06E);}
+.mem-av span{font-size:1.8rem;font-weight:900;color:rgba(255,255,255,.9);}
+.mem-card h3{font-size:1rem;font-weight:800;margin-bottom:3px;}
+.mem-role{color:var(--green);font-size:.78rem;font-weight:700;margin-bottom:6px;}
+.mem-card p{color:var(--text-s);font-size:.83rem;}
+
+/* ── CONTACT ── */
+.contact{
+  background:linear-gradient(160deg,var(--navy) 0%,#0F2A38 100%);
+  color:#fff;
+}
+.contact .label{color:var(--green-l);}
+.contact .label::before{background:var(--green-l);}
+.contact .section-sub{color:rgba(255,255,255,.65);}
+.contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;}
+.form-box{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--rl);padding:36px;
+}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.8rem;margin-bottom:6px;font-weight:700;color:rgba(255,255,255,.75);}
+.field input,.field textarea{
+  width:100%;padding:11px 14px;border-radius:var(--r);
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.07);color:#fff;font-size:.9rem;font-family:inherit;
+  transition:border-color .2s,background .2s;
+}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:var(--green-l);background:rgba(255,255,255,.1);
+}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.35);}
+.form-btn{
+  width:100%;padding:13px;border-radius:var(--r);
+  background:var(--green);color:#fff;font-size:.92rem;font-weight:700;
+  font-family:inherit;border:none;cursor:pointer;
+  box-shadow:0 4px 16px rgba(59,172,125,.4);
+  transition:background .2s,transform .15s;
+}
+.form-btn:hover{background:var(--green-m);transform:translateY(-1px);}
+.form-note{font-size:.73rem;color:rgba(255,255,255,.4);margin-top:10px;text-align:center;}
+
+.c-aside h3{font-size:1.05rem;font-weight:800;margin-bottom:18px;}
+.c-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
+.c-icon{
+  flex:none;width:40px;height:40px;border-radius:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+}
+.c-row b{font-size:.87rem;}
+.c-row p{margin:2px 0 0;color:rgba(255,255,255,.65);font-size:.84rem;}
+.sns-row{display:flex;gap:10px;margin-top:24px;}
+.sns-a{
+  width:40px;height:40px;border-radius:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:800;color:#fff;
+  transition:background .2s,transform .15s;
+}
+.sns-a:hover{background:var(--green);transform:translateY(-2px);}
+
+/* ── FOOTER ── */
+footer{
+  background:#0C1F18;color:rgba(255,255,255,.45);
+  padding:28px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:.8rem;
+}
+footer .fl{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.7);font-weight:700;font-size:.88rem;
+}
+footer .flm{
+  width:22px;height:22px;background:var(--green);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.6rem;font-weight:900;
+}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease;}
+.rev.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s;}
+.d2{transition-delay:.16s;}
+.d3{transition-delay:.24s;}
+.d4{transition-delay:.32s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .nav-links{
+    position:fixed;top:60px;left:0;right:0;bottom:0;
+    background:var(--white);flex-direction:column;
+    padding:20px 24px;gap:0;
+    transform:translateX(100%);transition:transform .3s;
+    border-top:1px solid var(--bd);
+  }
+  .nav-links.open{transform:translateX(0);}
+  .nav-links a{display:block;padding:14px 4px;border-bottom:1px solid var(--bd);font-size:1rem;}
+  .nav-cta{display:none;}
+  .menu-btn{display:flex;}
+  .about-wrap,.contact-wrap{grid-template-columns:1fr;}
+  .media-grid{grid-template-columns:1fr;}
+  .mc-yt{grid-row:auto;}
+  .act-grid{grid-template-columns:1fr;}
+  .mem-grid{grid-template-columns:repeat(2,1fr);}
+  .gal-grid{columns:2;}
+  section{padding:60px 0;}
+  .container{padding:0 20px;}
+  .mosaic{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(5,1fr);}
+  .stats-bar .container{flex-wrap:wrap;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--bd);max-width:100%;flex-basis:50%;}
+  .tl-wrap{padding:24px 20px;}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px;}
+}
+@media(max-width:480px){
+  .gal-grid{columns:1;}
+  .mem-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-mark">T</div>
+      Think新宮
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">団体紹介</a></li>
+      <li><a href="#activities">活動内容</a></li>
+      <li><a href="#gallery">ギャラリー</a></li>
+      <li><a href="#media">メディア</a></li>
+      <li><a href="#members">メンバー</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">参加する</a>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="mosaic">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316103649300590/IMG_0141.png?ex=6a5ae037&is=6a598eb7&hm=3937a4df6bcdb6c253c56c443db4ddc712f069f111b50373fd2eef0e37247af3&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316105842917487/IMG_1222.jpg?ex=6a5ae037&is=6a598eb7&hm=26037110bc19dd46f8d8ab08142bdf3ba45b8735da8f7d535c0f23d93461a2a2&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316108728860792/IMG_1597.jpg?ex=6a5ae038&is=6a598eb8&hm=116ff34973ca878682d91ed152ac25beaf7ecb656731db80ffca7e055de802c8&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316107965501671/IMG_1572.jpg?ex=6a5ae038&is=6a598eb8&hm=3f00824355f3b0446ee5bc319ef21c81a1d50d228765382cc5d16187dd2e407d&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316773832097862/4D15437C-F886-4ACA-A87A-EE248C754010.jpg?ex=6a5ae0d7&is=6a598f57&hm=7bda0bd5b4f01c2e92196236e387a9ec54527ee110438b7ec1909b431ab9af36&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775392383138/IMG_2737.jpg?ex=6a5ae0d7&is=6a598f57&hm=84d926994fe5d6c29c1f3f6c69e2f370b391c6408e7c37520a438f9c5a5bbeb2&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316774641598484/IMG_2232.jpg?ex=6a5ae0d7&is=6a598f57&hm=294335f185a0fdeb903659f3a7b078667c5ad9ea7a887b6e7fa9ea4ff9d950e6&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775950356521/IMG_2778.jpg?ex=6a5ae0d7&is=6a598f57&hm=d53447724c5c4f5a160b35fc32d29129b796600fc898fc0357f31d6308e0194b&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775052775434/IMG_2424.jpg?ex=6a5ae0d7&is=6a598f57&hm=2ab9214c7a893c9ad0aa91e1aa1a5bbaf8b6b263149c1e5420c8629f432c332f&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777544056842/IMG_2875.jpg?ex=6a5ae0d7&is=6a598f57&hm=02e999f9cadcbd07dd6fab52ac9a8537cc56a7e4299a9dd07100b834c502b5f9&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777133146222/IMG_2768.jpg?ex=6a5ae0d7&is=6a598f57&hm=1cbb48141eb17632fa16d72fc0ae01ed30fe66ff94676775f73cde4a1b01dd44&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317432870506576/IMG_3741.jpg?ex=6a5ae174&is=6a598ff4&hm=d759fec45514ddf60836d81ac3b0ad42df9cc673c953c85d80e29c3d3714d0ed&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317433340395591/IMG_3743.jpg?ex=6a5ae174&is=6a598ff4&hm=5a5a23394e56d532207f9bdae02a712a0f2a3890bcbdb34e87df0ad685d72769&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317431796764792/IMG_3703.jpg?ex=6a5ae173&is=6a598ff3&hm=1db890d995abd994e7035dd618c061d1d9b373fd68cacd7b29d7513cb2a638e5&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317947075268648/image0.jpg?ex=6a5ae1ee&is=6a59906e&hm=51ea03a1491c9dfcbb297a37635a9d6aa3bc9c242fc3853ddabfa209366d1dab&" alt="">
+  </div>
+  <div class="mosaic-overlay"></div>
+  <div class="hero-body">
+    <div class="hero-badge">和歌山県新宮市 発 学生団体</div>
+    <h1>新宮のこれからを、<br><em>学生の視点</em>で考える。</h1>
+    <p class="hero-lead">まちの未来を考える、和歌山県新宮市発の学生団体。フィールドワーク・ラジオ番組・市議会レポート・FM出演など、多彩な方法で新宮の魅力を発信しています。</p>
+    <div class="hero-actions">
+      <a href="#activities" class="btn btn-green">活動を見る</a>
+      <a href="#contact" class="btn btn-ghost">団体に参加する</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat-item"><b>264</b><span>Instagramフォロワー</span></div>
+    <div class="stat-item"><b>3</b><span>メディア媒体</span></div>
+    <div class="stat-item"><b>2025</b><span>発足年</span></div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-photos rev">
+        <div class="aphoto">
+          <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316105842917487/IMG_1222.jpg?ex=6a5ae037&is=6a598eb7&hm=26037110bc19dd46f8d8ab08142bdf3ba45b8735da8f7d535c0f23d93461a2a2&" alt="活動の様子" style="width:100%;height:100%;">
+        </div>
+        <div class="aphoto">
+          <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316108728860792/IMG_1597.jpg?ex=6a5ae038&is=6a598eb8&hm=116ff34973ca878682d91ed152ac25beaf7ecb656731db80ffca7e055de802c8&" alt="フィールドワーク" style="width:100%;height:100%;">
+        </div>
+        <div class="aphoto">
+          <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316107965501671/IMG_1572.jpg?ex=6a5ae038&is=6a598eb8&hm=3f00824355f3b0446ee5bc319ef21c81a1d50d228765382cc5d16187dd2e407d&" alt="地域の様子" style="width:100%;height:100%;">
+        </div>
+      </div>
+      <div class="rev d1">
+        <div class="label">About Us</div>
+        <h2 class="section-title">団体紹介・ミッション</h2>
+        <p class="section-sub">まちの未来を考える、和歌山県新宮市から発足した地域活性化の学生団体。メンバーが各々の目標を掲げ、フィールドワーク・メディア発信・市議会レポートまで多彩な活動に取り組んでいます。</p>
+        <div class="mission">
+          <div class="mission-item">
+            <div class="m-num">01</div>
+            <div class="m-body">
+              <h3>知る</h3>
+              <p>熊野速玉大社や熊野古道をはじめ、新宮の歴史・文化・産業を学生自身が学び、まちへの理解を深めます。</p>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="m-num">02</div>
+            <div class="m-body">
+              <h3>つながる</h3>
+              <p>地域住民・商店・行政と対話を重ね、世代を超えたつながりの中でまちづくりに参加します。</p>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="m-num">03</div>
+            <div class="m-body">
+              <h3>発信する</h3>
+              <p>SNSやイベントを通じて、新宮の魅力と学生の視点をより多くの人に届けます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACTIVITIES ── -->
+<section class="activities" id="activities">
+  <div class="container">
+    <div class="label rev">Activities</div>
+    <h2 class="section-title rev">活動内容・実績</h2>
+    <p class="section-sub rev">フィールドワークから地域イベントの企画・運営まで、多彩な活動に取り組んでいます。</p>
+    <div class="act-grid">
+      <div class="act-card rev">
+        <div class="act-card-top bg1">🗺️</div>
+        <div class="act-body">
+          <h3>まち歩き・フィールドワーク</h3>
+          <p>熊野古道や新宮の商店街を歩き、地域の魅力や課題を自分たちの目で調査します。</p>
+          <span class="act-tag">定期開催</span>
+        </div>
+      </div>
+      <div class="act-card rev d1">
+        <div class="act-card-top bg2">🎙️</div>
+        <div class="act-body">
+          <h3>あごらじお（YouTube）</h3>
+          <p>地域活性化・移住・熊野文化などをテーマに、学生がざっくばらんに語り合うYouTubeラジオ番組。</p>
+          <span class="act-tag">定期配信</span>
+        </div>
+      </div>
+      <div class="act-card rev d2">
+        <div class="act-card-top bg3">📻</div>
+        <div class="act-body">
+          <h3>FM新宮 出演</h3>
+          <p>地元コミュニティFM「FM新宮」に出演し、Think新宮の活動や新宮のまちの魅力を電波で発信しています。</p>
+          <span class="act-tag">随時</span>
+        </div>
+      </div>
+      <div class="act-card rev">
+        <div class="act-card-top bg4">📝</div>
+        <div class="act-body">
+          <h3>市議会レポート（note）</h3>
+          <p>新宮市議会の定例会を傍聴し、審議内容をわかりやすくnoteで公開。市民と行政をつなぐ情報発信を行っています。</p>
+          <span class="act-tag">議会ごと</span>
+        </div>
+      </div>
+      <div class="act-card rev d1">
+        <div class="act-card-top bg5">🤝</div>
+        <div class="act-body">
+          <h3>行政・団体との連携</h3>
+          <p>新宮市や地域団体と協力し、学生視点でのプロジェクト提案・実行を行っています。</p>
+          <span class="act-tag">通年</span>
+        </div>
+      </div>
+      <div class="act-card rev d2">
+        <div class="act-card-top bg6">🌿</div>
+        <div class="act-body">
+          <h3>観光・文化継承</h3>
+          <p>熊野速玉大社や熊野古道など、新宮の誇る観光・文化資源の魅力を次世代へつなぐ活動に取り組んでいます。</p>
+          <span class="act-tag">継続活動</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-wrap rev">
+      <div class="tl-head">これまでの主な実績</div>
+      <div class="tl-row">
+        <div><span class="tl-dt">2025.11</span></div>
+        <div class="tl-tx">
+          <b>新宮まちなかマルシェ</b>
+          <p>企画メンバーとして参加、学生ブースを出展しました。</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div><span class="tl-dt">2025.08</span></div>
+        <div class="tl-tx">
+          <b>熊野古道フィールドワーク</b>
+          <p>参加学生向けの地域学習ツアーを実施しました。</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div><span class="tl-dt">2025.04</span></div>
+        <div class="tl-tx">
+          <b>Think新宮 発足</b>
+          <p>新宮市内の学生・卒業生が集まり活動を開始しました。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHOTO STRIP ── -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316103649300590/IMG_0141.png?ex=6a5ae037&is=6a598eb7&hm=3937a4df6bcdb6c253c56c443db4ddc712f069f111b50373fd2eef0e37247af3&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316105842917487/IMG_1222.jpg?ex=6a5ae037&is=6a598eb7&hm=26037110bc19dd46f8d8ab08142bdf3ba45b8735da8f7d535c0f23d93461a2a2&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316108728860792/IMG_1597.jpg?ex=6a5ae038&is=6a598eb8&hm=116ff34973ca878682d91ed152ac25beaf7ecb656731db80ffca7e055de802c8&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316107965501671/IMG_1572.jpg?ex=6a5ae038&is=6a598eb8&hm=3f00824355f3b0446ee5bc319ef21c81a1d50d228765382cc5d16187dd2e407d&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316773832097862/4D15437C-F886-4ACA-A87A-EE248C754010.jpg?ex=6a5ae0d7&is=6a598f57&hm=7bda0bd5b4f01c2e92196236e387a9ec54527ee110438b7ec1909b431ab9af36&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775392383138/IMG_2737.jpg?ex=6a5ae0d7&is=6a598f57&hm=84d926994fe5d6c29c1f3f6c69e2f370b391c6408e7c37520a438f9c5a5bbeb2&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316774641598484/IMG_2232.jpg?ex=6a5ae0d7&is=6a598f57&hm=294335f185a0fdeb903659f3a7b078667c5ad9ea7a887b6e7fa9ea4ff9d950e6&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775950356521/IMG_2778.jpg?ex=6a5ae0d7&is=6a598f57&hm=d53447724c5c4f5a160b35fc32d29129b796600fc898fc0357f31d6308e0194b&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775052775434/IMG_2424.jpg?ex=6a5ae0d7&is=6a598f57&hm=2ab9214c7a893c9ad0aa91e1aa1a5bbaf8b6b263149c1e5420c8629f432c332f&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777544056842/IMG_2875.jpg?ex=6a5ae0d7&is=6a598f57&hm=02e999f9cadcbd07dd6fab52ac9a8537cc56a7e4299a9dd07100b834c502b5f9&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777133146222/IMG_2768.jpg?ex=6a5ae0d7&is=6a598f57&hm=1cbb48141eb17632fa16d72fc0ae01ed30fe66ff94676775f73cde4a1b01dd44&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317432870506576/IMG_3741.jpg?ex=6a5ae174&is=6a598ff4&hm=d759fec45514ddf60836d81ac3b0ad42df9cc673c953c85d80e29c3d3714d0ed&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317433340395591/IMG_3743.jpg?ex=6a5ae174&is=6a598ff4&hm=5a5a23394e56d532207f9bdae02a712a0f2a3890bcbdb34e87df0ad685d72769&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317431796764792/IMG_3703.jpg?ex=6a5ae173&is=6a598ff3&hm=1db890d995abd994e7035dd618c061d1d9b373fd68cacd7b29d7513cb2a638e5&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317947075268648/image0.jpg?ex=6a5ae1ee&is=6a59906e&hm=51ea03a1491c9dfcbb297a37635a9d6aa3bc9c242fc3853ddabfa209366d1dab&" alt=""></div>
+    <!-- dup for loop -->
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316103649300590/IMG_0141.png?ex=6a5ae037&is=6a598eb7&hm=3937a4df6bcdb6c253c56c443db4ddc712f069f111b50373fd2eef0e37247af3&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316105842917487/IMG_1222.jpg?ex=6a5ae037&is=6a598eb7&hm=26037110bc19dd46f8d8ab08142bdf3ba45b8735da8f7d535c0f23d93461a2a2&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316108728860792/IMG_1597.jpg?ex=6a5ae038&is=6a598eb8&hm=116ff34973ca878682d91ed152ac25beaf7ecb656731db80ffca7e055de802c8&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316107965501671/IMG_1572.jpg?ex=6a5ae038&is=6a598eb8&hm=3f00824355f3b0446ee5bc319ef21c81a1d50d228765382cc5d16187dd2e407d&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316773832097862/4D15437C-F886-4ACA-A87A-EE248C754010.jpg?ex=6a5ae0d7&is=6a598f57&hm=7bda0bd5b4f01c2e92196236e387a9ec54527ee110438b7ec1909b431ab9af36&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775392383138/IMG_2737.jpg?ex=6a5ae0d7&is=6a598f57&hm=84d926994fe5d6c29c1f3f6c69e2f370b391c6408e7c37520a438f9c5a5bbeb2&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316774641598484/IMG_2232.jpg?ex=6a5ae0d7&is=6a598f57&hm=294335f185a0fdeb903659f3a7b078667c5ad9ea7a887b6e7fa9ea4ff9d950e6&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317432870506576/IMG_3741.jpg?ex=6a5ae174&is=6a598ff4&hm=d759fec45514ddf60836d81ac3b0ad42df9cc673c953c85d80e29c3d3714d0ed&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317433340395591/IMG_3743.jpg?ex=6a5ae174&is=6a598ff4&hm=5a5a23394e56d532207f9bdae02a712a0f2a3890bcbdb34e87df0ad685d72769&" alt=""></div>
+    <div class="s-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317947075268648/image0.jpg?ex=6a5ae1ee&is=6a59906e&hm=51ea03a1491c9dfcbb297a37635a9d6aa3bc9c242fc3853ddabfa209366d1dab&" alt=""></div>
+  </div>
+</div>
+
+<!-- ── GALLERY ── -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="label rev">Gallery</div>
+    <h2 class="section-title rev">活動の様子</h2>
+    <p class="section-sub rev">メンバーが日々の活動を通じて出会う、新宮のひとコマ。</p>
+    <div class="gal-grid rev">
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316103649300590/IMG_0141.png?ex=6a5ae037&is=6a598eb7&hm=3937a4df6bcdb6c253c56c443db4ddc712f069f111b50373fd2eef0e37247af3&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316773832097862/4D15437C-F886-4ACA-A87A-EE248C754010.jpg?ex=6a5ae0d7&is=6a598f57&hm=7bda0bd5b4f01c2e92196236e387a9ec54527ee110438b7ec1909b431ab9af36&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775392383138/IMG_2737.jpg?ex=6a5ae0d7&is=6a598f57&hm=84d926994fe5d6c29c1f3f6c69e2f370b391c6408e7c37520a438f9c5a5bbeb2&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316774641598484/IMG_2232.jpg?ex=6a5ae0d7&is=6a598f57&hm=294335f185a0fdeb903659f3a7b078667c5ad9ea7a887b6e7fa9ea4ff9d950e6&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775950356521/IMG_2778.jpg?ex=6a5ae0d7&is=6a598f57&hm=d53447724c5c4f5a160b35fc32d29129b796600fc898fc0357f31d6308e0194b&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775052775434/IMG_2424.jpg?ex=6a5ae0d7&is=6a598f57&hm=2ab9214c7a893c9ad0aa91e1aa1a5bbaf8b6b263149c1e5420c8629f432c332f&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777544056842/IMG_2875.jpg?ex=6a5ae0d7&is=6a598f57&hm=02e999f9cadcbd07dd6fab52ac9a8537cc56a7e4299a9dd07100b834c502b5f9&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777133146222/IMG_2768.jpg?ex=6a5ae0d7&is=6a598f57&hm=1cbb48141eb17632fa16d72fc0ae01ed30fe66ff94676775f73cde4a1b01dd44&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317433340395591/IMG_3743.jpg?ex=6a5ae174&is=6a598ff4&hm=5a5a23394e56d532207f9bdae02a712a0f2a3890bcbdb34e87df0ad685d72769&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317431796764792/IMG_3703.jpg?ex=6a5ae173&is=6a598ff3&hm=1db890d995abd994e7035dd618c061d1d9b373fd68cacd7b29d7513cb2a638e5&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316105842917487/IMG_1222.jpg?ex=6a5ae037&is=6a598eb7&hm=26037110bc19dd46f8d8ab08142bdf3ba45b8735da8f7d535c0f23d93461a2a2&" alt=""></div>
+      <div class="gal-item"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317947075268648/image0.jpg?ex=6a5ae1ee&is=6a59906e&hm=51ea03a1491c9dfcbb297a37635a9d6aa3bc9c242fc3853ddabfa209366d1dab&" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MEDIA ── -->
+<section class="media" id="media">
+
+  <div class="media-header">
+    <div class="container">
+      <div class="label rev">Media</div>
+      <h2 class="section-title rev">メディア</h2>
+      <p class="section-sub rev" style="margin-bottom:0;">YouTube・Instagram・noteの3チャンネルで、新宮のリアルを継続発信しています。</p>
+    </div>
+  </div>
+
+  <!-- ── YouTube Zone ── -->
+  <div class="mz mz-yt" id="youtube">
+    <div class="mz-inner container">
+      <a href="https://www.youtube.com/@Agoradio-ThinkShingu" target="_blank" rel="noopener" class="yt-thumb rev">
+        <img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527317947075268648/image0.jpg?ex=6a5ae1ee&is=6a59906e&hm=51ea03a1491c9dfcbb297a37635a9d6aa3bc9c242fc3853ddabfa209366d1dab&" alt="あごらじお">
+        <div class="yt-thumb-overlay">
+          <div class="yt-play">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </a>
+      <div class="rev d1">
+        <div class="mz-plt-label" style="background:rgba(255,0,0,.15);color:#FF4444;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.6 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4L16 12l-6.5 3.6z"/></svg>
+          YouTube
+        </div>
+        <h2 class="mz-title">あごらじお<br>from Think新宮</h2>
+        <p class="mz-lead">「アゴラ（広場）＋ラジオ」から生まれた番組。地域活性化・移住・UIターン・熊野文化など、さまざまなテーマを学生がざっくばらんに語り合います。毎週新エピソードを配信中！</p>
+        <div style="margin-bottom:24px;">
+          <span class="mz-tag" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);">地域活性化</span>
+          <span class="mz-tag" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);">移住・UIターン</span>
+          <span class="mz-tag" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);">熊野文化</span>
+          <span class="mz-tag" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);">インタビュー</span>
+        </div>
+        <a href="https://www.youtube.com/@Agoradio-ThinkShingu" target="_blank" rel="noopener" class="mz-cta" style="background:#FF0000;color:#fff;box-shadow:0 4px 16px rgba(255,0,0,.35);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.6 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4L16 12l-6.5 3.6z"/></svg>
+          チャンネルを見る
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Instagram Zone ── -->
+  <div class="mz mz-ig" id="instagram">
+    <div class="mz-inner container" style="grid-template-columns:1fr 1.15fr;">
+      <div class="rev">
+        <div class="mz-plt-label ig-plt-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </div>
+        <div class="ig-profile">
+          <div class="ig-avatar">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div>
+            <div class="ig-handle">@t___k.s___gu</div>
+            <div style="font-size:.8rem;color:var(--text-s);">Think新宮</div>
+          </div>
+        </div>
+        <div class="ig-stats">
+          <div class="ig-stat"><b>264</b><span>フォロワー</span></div>
+          <div class="ig-stat"><b>27</b><span>投稿</span></div>
+        </div>
+        <h2 class="mz-title" style="font-size:1.4rem;">まちなかの日常を、<br>写真でお届けします。</h2>
+        <p class="mz-lead">フィールドワーク・イベント・メンバーの活動の瞬間をInstagramで発信しています。</p>
+        <a href="https://www.instagram.com/t___k.s___gu" target="_blank" rel="noopener" class="mz-cta" style="background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);color:#fff;box-shadow:0 4px 16px rgba(193,53,132,.3);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          フォローする
+        </a>
+      </div>
+      <div class="ig-photos rev d1">
+        <div class="ig-photo"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316773832097862/4D15437C-F886-4ACA-A87A-EE248C754010.jpg?ex=6a5ae0d7&is=6a598f57&hm=7bda0bd5b4f01c2e92196236e387a9ec54527ee110438b7ec1909b431ab9af36&" alt=""></div>
+        <div class="ig-photo"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775392383138/IMG_2737.jpg?ex=6a5ae0d7&is=6a598f57&hm=84d926994fe5d6c29c1f3f6c69e2f370b391c6408e7c37520a438f9c5a5bbeb2&" alt=""></div>
+        <div class="ig-photo"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316774641598484/IMG_2232.jpg?ex=6a5ae0d7&is=6a598f57&hm=294335f185a0fdeb903659f3a7b078667c5ad9ea7a887b6e7fa9ea4ff9d950e6&" alt=""></div>
+        <div class="ig-photo"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775950356521/IMG_2778.jpg?ex=6a5ae0d7&is=6a598f57&hm=d53447724c5c4f5a160b35fc32d29129b796600fc898fc0357f31d6308e0194b&" alt=""></div>
+        <div class="ig-photo"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316775052775434/IMG_2424.jpg?ex=6a5ae0d7&is=6a598f57&hm=2ab9214c7a893c9ad0aa91e1aa1a5bbaf8b6b263149c1e5420c8629f432c332f&" alt=""></div>
+        <div class="ig-photo"><img src="https://cdn.discordapp.com/attachments/1382918313214214166/1527316777544056842/IMG_2875.jpg?ex=6a5ae0d7&is=6a598f57&hm=02e999f9cadcbd07dd6fab52ac9a8537cc56a7e4299a9dd07100b834c502b5f9&" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Note Zone ── -->
+  <div class="mz mz-note" id="note">
+    <div class="mz-inner container" style="grid-template-columns:1fr 1.1fr;">
+      <div class="rev">
+        <div class="mz-plt-label note-plt-label">📝 note</div>
+        <h2 class="mz-title">続報いばしちし<br>from Think新宮</h2>
+        <p class="mz-lead">Think新宮の公式執筆アカウント。「普段は聞けない、メンバーの想いや企画秘話をこぼす場所」として運営。現在は新宮市議会定例会のレポートを連載中です。</p>
+        <a href="https://note.com/think_shingu" target="_blank" rel="noopener" class="mz-cta" style="background:#3DAA97;color:#fff;box-shadow:0 4px 14px rgba(61,170,151,.3);">
+          記事を読む →
+        </a>
+      </div>
+      <div class="note-articles rev d1">
+        <a href="https://note.com/think_shingu" target="_blank" rel="noopener" class="note-card">
+          <div class="note-card-num">6</div>
+          <div class="note-card-body">
+            <div class="note-card-label">2026新宮市議会3月定例会</div>
+            <div class="note-card-title">6日目レポート（一般質問）</div>
+          </div>
+        </a>
+        <a href="https://note.com/think_shingu" target="_blank" rel="noopener" class="note-card">
+          <div class="note-card-num">5</div>
+          <div class="note-card-body">
+            <div class="note-card-label">2026新宮市議会3月定例会</div>
+            <div class="note-card-title">5日目レポート（一般質問）</div>
+          </div>
+        </a>
+        <a href="https://note.com/think_shingu" target="_blank" rel="noopener" class="note-card">
+          <div class="note-card-num">4</div>
+          <div class="note-card-body">
+            <div class="note-card-label">2026新宮市議会3月定例会</div>
+            <div class="note-card-title">4日目レポート（一般質問）</div>
+          </div>
+        </a>
+        <a href="https://note.com/think_shingu" target="_blank" rel="noopener" class="note-card">
+          <div class="note-card-num">1</div>
+          <div class="note-card-body">
+            <div class="note-card-label">2026新宮市議会3月定例会</div>
+            <div class="note-card-title">1日目レポート</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── MEMBERS ── -->
+<section class="members" id="members">
+  <div class="container">
+    <div class="label rev">Members</div>
+    <h2 class="section-title rev">メンバー紹介</h2>
+    <p class="section-sub rev">さまざまな学部・学年のメンバーが、それぞれの視点を持ち寄って活動しています。</p>
+    <div class="mem-grid">
+      <div class="mem-card rev">
+        <div class="mem-av ag1"><span>代</span></div>
+        <h3>代表</h3>
+        <div class="mem-role">Founder / 代表</div>
+        <p>団体の立ち上げから運営全体を統括。</p>
+      </div>
+      <div class="mem-card rev d1">
+        <div class="mem-av ag2"><span>副</span></div>
+        <h3>副代表</h3>
+        <div class="mem-role">Co-Founder</div>
+        <p>イベント企画・渉外を担当。</p>
+      </div>
+      <div class="mem-card rev d2">
+        <div class="mem-av ag3"><span>広</span></div>
+        <h3>広報担当</h3>
+        <div class="mem-role">PR / SNS</div>
+        <p>SNS発信とウェブサイトを担当。</p>
+      </div>
+      <div class="mem-card rev d3">
+        <div class="mem-av ag4"><span>会</span></div>
+        <h3>会計担当</h3>
+        <div class="mem-role">Treasurer</div>
+        <p>予算管理と運営サポートを担当。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="label rev">Contact</div>
+    <h2 class="section-title rev">お問い合わせ</h2>
+    <p class="section-sub rev">団体への参加・取材・コラボレーションのご相談など、お気軽にご連絡ください。</p>
+    <div class="contact-wrap">
+      <form class="form-box rev" onsubmit="event.preventDefault();alert('送信ありがとうございます！（デモフォームのため実際には送信されません）');">
+        <div class="field">
+          <label for="fn">お名前</label>
+          <input id="fn" type="text" placeholder="山田 太郎" required>
+        </div>
+        <div class="field">
+          <label for="fe">メールアドレス</label>
+          <input id="fe" type="email" placeholder="example@email.com" required>
+        </div>
+        <div class="field">
+          <label for="fm">お問い合わせ内容</label>
+          <textarea id="fm" rows="4" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+        </div>
+        <button type="submit" class="form-btn">送信する</button>
+        <p class="form-note">※ このフォームはサンプルです。実際に送信するには別途フォーム連携が必要です。</p>
+      </form>
+      <div class="c-aside rev d1">
+        <h3>その他の連絡先</h3>
+        <div class="c-row">
+          <div class="c-icon">✉️</div>
+          <div>
+            <b>メール</b>
+            <p>think.shingu@example.com</p>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon">📍</div>
+          <div>
+            <b>活動拠点</b>
+            <p>和歌山県新宮市</p>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon">📝</div>
+          <div>
+            <b>note（市議会レポート）</b>
+            <p><a href="https://note.com/think_shingu" target="_blank" rel="noopener" style="color:rgba(255,255,255,.75);text-decoration:underline;">note.com/think_shingu</a></p>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.55);margin-top:20px;">各種メディアは<a href="#media" style="color:var(--green-l);font-weight:700;">メディアページ</a>からご覧いただけます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">
+    <div class="flm">T</div>
+    Think新宮
+  </div>
+  <span>&copy; 2026 Think新宮. All rights reserved.</span>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
