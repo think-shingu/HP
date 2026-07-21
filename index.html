@@ -977,21 +977,23 @@ footer .flm{
     <h2 class="section-title rev">お問い合わせ</h2>
     <p class="section-sub rev">団体への参加・取材・コラボレーションのご相談など、お気軽にご連絡ください。</p>
     <div class="contact-wrap">
-      <form class="form-box rev" onsubmit="event.preventDefault();alert('送信ありがとうございます！（デモフォームのため実際には送信されません）');">
+      <form class="form-box rev" id="contactForm">
         <div class="field">
           <label for="fn">お名前</label>
-          <input id="fn" type="text" placeholder="山田 太郎" required>
+          <input id="fn" name="entry.519808797" type="text" placeholder="山田 太郎" required>
         </div>
         <div class="field">
           <label for="fe">メールアドレス</label>
-          <input id="fe" type="email" placeholder="example@email.com" required>
+          <input id="fe" name="entry.880240567" type="email" placeholder="example@email.com" required>
         </div>
         <div class="field">
           <label for="fm">お問い合わせ内容</label>
-          <textarea id="fm" rows="4" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+          <textarea id="fm" name="entry.1443081080" rows="4" placeholder="お問い合わせ内容をご記入ください" required></textarea>
         </div>
-        <button type="submit" class="form-btn">送信する</button>
-        <p class="form-note">※ このフォームはサンプルです。実際に送信するには別途フォーム連携が必要です。</p>
+        <button type="submit" class="form-btn" id="formBtn">送信する</button>
+        <div id="formSuccess" style="display:none;margin-top:16px;padding:14px 18px;background:var(--green-bg2);border-radius:var(--r);color:var(--green-d);font-weight:600;">
+          ✓ 送信が完了しました。ありがとうございます！
+        </div>
       </form>
       <div class="c-aside rev d1">
         <h3>その他の連絡先</h3>
@@ -1040,6 +1042,23 @@ footer .flm{
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('formBtn');
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+    const data = new FormData(contactForm);
+    try {
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSd-yUJh_ILNSEBTIhkBLfDQouCHRCN95-9kUk109rGcY_RCWw/formResponse', {
+        method: 'POST', body: data, mode: 'no-cors'
+      });
+    } catch (_) {}
+    contactForm.reset();
+    btn.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
 </script>
 </body>
 </html>
