@@ -1,0 +1,8 @@
+{
+  "name": "HP｜Think新宮",
+  "short_name": "Think新宮",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FAFCF9",
+  "theme_color": "#3BAC7D"
+}
