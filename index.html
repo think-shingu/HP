@@ -6,6 +6,7 @@
 <title>Think新宮 | 学生団体</title>
 <meta name="description" content="Think新宮は、和歌山県新宮市の未来を学生の視点で考え、地域とつながる活動を行う学生団体です。">
 <link rel="manifest" href="団体情報/manifest.json">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="icon" href="団体情報/Think新宮アイコン.png">
 <link rel="apple-touch-icon" href="団体情報/Think新宮アイコン.png">
 <style>
@@ -424,36 +425,21 @@ header{
 }
 
 /* ── MEMBERS ── */
-.members{background:var(--off);overflow:hidden;}
-.mem-carousel{
-  display:flex;gap:16px;
-  overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:8px 0 28px;
-  scrollbar-width:none;-webkit-overflow-scrolling:touch;
-}
-.mem-carousel::-webkit-scrollbar{display:none;}
-.mem-card{
-  flex:none;width:min(320px,72vw);text-align:center;
-  scroll-snap-align:center;
-}
+.members{background:var(--off);}
+.mem-swiper{width:100%;padding:8px 0 48px;}
+.mem-swiper .swiper-slide{width:320px;text-align:center;}
 .mem-av{
   width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
   margin-bottom:14px;box-shadow:var(--sh);
   border:3px solid var(--white);
   outline:2px solid var(--green-bd);
-  display:flex;align-items:center;justify-content:center;
 }
 .mem-av img{width:100%;height:100%;object-fit:cover;}
-.mem-card h3{font-size:1rem;font-weight:800;margin-bottom:3px;}
+.swiper-slide h3{font-size:1rem;font-weight:800;margin-bottom:3px;}
 .mem-role{color:var(--green);font-size:.78rem;font-weight:700;margin-bottom:6px;}
-.mem-card p{color:var(--text-s);font-size:.83rem;}
-.mem-dots{display:flex;justify-content:center;gap:10px;margin-top:16px;}
-.mem-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--bd);border:none;cursor:pointer;padding:0;
-  transition:background .25s,width .25s,border-radius .25s;
-}
-.mem-dot.active{background:var(--green);width:24px;border-radius:4px;}
+.swiper-slide p{color:var(--text-s);font-size:.83rem;}
+.mem-swiper .swiper-pagination-bullet{background:var(--bd);opacity:1;}
+.mem-swiper .swiper-pagination-bullet-active{background:var(--green);}
 
 /* ── CONTACT ── */
 .contact{
@@ -890,36 +876,35 @@ footer .flm{
     <div class="label rev">Members</div>
     <h2 class="section-title rev">メンバー紹介</h2>
     <p class="section-sub rev">さまざまな学部・学年のメンバーが、それぞれの視点を持ち寄って活動しています。</p>
-  <div class="mem-carousel" id="memCarousel">
-    <div class="mem-card rev">
-      <div class="mem-av">
-        <img src="メンバー情報/前田一成.png" alt="前田一成">
-      </div>
-      <h3>前田一成</h3>
-      <div class="mem-role">Founder / 代表</div>
-      <p>大阪大学経済学部2年。新宮市出身。高校時代から地域活動に取り組み、2024年12月にThink新宮を立ち上げました。現在はパネルデータを用いた自治体の政策効果検証を研究中。</p>
-    </div>
-    <div class="mem-card rev">
-      <div class="mem-av">
-        <img src="メンバー情報/松岡木葉.jpeg" alt="松岡木葉">
-      </div>
-      <h3>松岡木葉</h3>
-      <div class="mem-role">Member</div>
-      <p>和歌山大学観光学部1年。観光を通じた地域活性化に取り組み、「きのくに線活性化プロジェクト」にも参加。地元に学べる観光列車の運行を夢見ています。</p>
-    </div>
-    <div class="mem-card rev">
-      <div class="mem-av">
-        <img src="メンバー情報/仲森陽音.jpg" alt="仲森陽音">
-      </div>
-      <h3>仲森陽音</h3>
-      <div class="mem-role">Manager</div>
-      <p>慶應義塾大学文学部1年。団体ではマネージャーとして作業効率化とコミュニケーション改善を担当。クリエイティブチームkotohaや起業準備など、団体外でも幅広く活動中。</p>
-    </div>
   </div>
-  <div class="mem-dots">
-    <button class="mem-dot active" data-idx="0" aria-label="前田一成"></button>
-    <button class="mem-dot" data-idx="1" aria-label="松岡木葉"></button>
-    <button class="mem-dot" data-idx="2" aria-label="仲森陽音"></button>
+  <div class="swiper mem-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="mem-av">
+          <img src="メンバー情報/前田一成.png" alt="前田一成">
+        </div>
+        <h3>前田一成</h3>
+        <div class="mem-role">Founder / 代表</div>
+        <p>大阪大学経済学部2年。新宮市出身。高校時代から地域活動に取り組み、2024年12月にThink新宮を立ち上げました。現在はパネルデータを用いた自治体の政策効果検証を研究中。</p>
+      </div>
+      <div class="swiper-slide">
+        <div class="mem-av">
+          <img src="メンバー情報/松岡木葉.jpeg" alt="松岡木葉">
+        </div>
+        <h3>松岡木葉</h3>
+        <div class="mem-role">Member</div>
+        <p>和歌山大学観光学部1年。観光を通じた地域活性化に取り組み、「きのくに線活性化プロジェクト」にも参加。地元に学べる観光列車の運行を夢見ています。</p>
+      </div>
+      <div class="swiper-slide">
+        <div class="mem-av">
+          <img src="メンバー情報/仲森陽音.jpg" alt="仲森陽音">
+        </div>
+        <h3>仲森陽音</h3>
+        <div class="mem-role">Manager</div>
+        <p>慶應義塾大学文学部1年。団体ではマネージャーとして作業効率化とコミュニケーション改善を担当。クリエイティブチームkotohaや起業準備など、団体外でも幅広く活動中。</p>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
 </section>
 
@@ -1033,7 +1018,17 @@ footer .flm{
   <span>&copy; 2026 Think新宮. All rights reserved.</span>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+  new Swiper('.mem-swiper', {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    grabCursor: true,
+  });
+
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -1043,59 +1038,6 @@ footer .flm{
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.rev').forEach(el => obs.observe(el));
-
-  const carousel = document.getElementById('memCarousel');
-  const dots = document.querySelectorAll('.mem-dot');
-  const realCards = Array.from(carousel.querySelectorAll('.mem-card'));
-  const n = realCards.length;
-  const CLONES = 2;
-
-  // 両側にCLONES枚ずつクローンを追加して空きなし円環を実現
-  for (let i = CLONES - 1; i >= 0; i--)
-    carousel.insertBefore(realCards[(n - CLONES + i) % n].cloneNode(true), carousel.firstChild);
-  for (let i = 0; i < CLONES; i++)
-    carousel.appendChild(realCards[i % n].cloneNode(true));
-
-  function getCards() { return Array.from(carousel.querySelectorAll('.mem-card')); }
-
-  function scrollTo(idx, smooth) {
-    const card = getCards()[idx];
-    const left = card.offsetLeft - (carousel.clientWidth - card.offsetWidth) / 2;
-    carousel.style.scrollBehavior = smooth ? 'smooth' : 'auto';
-    carousel.scrollLeft = left;
-  }
-
-  function getClosest() {
-    const cx = carousel.scrollLeft + carousel.clientWidth / 2;
-    let closest = 0, minDist = Infinity;
-    getCards().forEach((c, i) => {
-      const dist = Math.abs(c.offsetLeft + c.offsetWidth / 2 - cx);
-      if (dist < minDist) { minDist = dist; closest = i; }
-    });
-    return closest;
-  }
-
-  function updateDots(idx) {
-    const dot = ((idx - CLONES) % n + n) % n;
-    dots.forEach((d, i) => d.classList.toggle('active', i === dot));
-  }
-
-  requestAnimationFrame(() => scrollTo(CLONES, false));
-
-  let scrollTimer;
-  carousel.addEventListener('scroll', () => {
-    updateDots(getClosest());
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      const idx = getClosest();
-      if (idx < CLONES) scrollTo(idx + n, false);
-      else if (idx >= n + CLONES) scrollTo(idx - n, false);
-    }, 50);
-  }, {passive:true});
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => scrollTo(i + CLONES, true));
-  });
 
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', async (e) => {
