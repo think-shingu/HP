@@ -424,9 +424,18 @@ header{
 }
 
 /* ── MEMBERS ── */
-.members{background:var(--off);}
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.mem-card{text-align:center;}
+.members{background:var(--off);overflow:hidden;}
+.mem-carousel{
+  display:flex;gap:24px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding:8px calc(50% - 160px) 28px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.mem-carousel::-webkit-scrollbar{display:none;}
+.mem-card{
+  flex:none;width:320px;text-align:center;
+  scroll-snap-align:center;
+}
 .mem-av{
   width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
   margin-bottom:14px;box-shadow:var(--sh);
@@ -438,6 +447,13 @@ header{
 .mem-card h3{font-size:1rem;font-weight:800;margin-bottom:3px;}
 .mem-role{color:var(--green);font-size:.78rem;font-weight:700;margin-bottom:6px;}
 .mem-card p{color:var(--text-s);font-size:.83rem;}
+.mem-dots{display:flex;justify-content:center;gap:10px;margin-top:16px;}
+.mem-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--bd);border:none;cursor:pointer;padding:0;
+  transition:background .25s,width .25s,border-radius .25s;
+}
+.mem-dot.active{background:var(--green);width:24px;border-radius:4px;}
 
 /* ── CONTACT ── */
 .contact{
@@ -874,32 +890,36 @@ footer .flm{
     <div class="label rev">Members</div>
     <h2 class="section-title rev">メンバー紹介</h2>
     <p class="section-sub rev">さまざまな学部・学年のメンバーが、それぞれの視点を持ち寄って活動しています。</p>
-    <div class="mem-grid">
-      <div class="mem-card rev">
-        <div class="mem-av">
-          <img src="メンバー情報/前田一成.png" alt="前田一成">
-        </div>
-        <h3>前田一成</h3>
-        <div class="mem-role">Founder / 代表</div>
-        <p>大阪大学経済学部2年。新宮市出身。高校時代から地域活動に取り組み、2024年12月にThink新宮を立ち上げました。現在はパネルデータを用いた自治体の政策効果検証を研究中。</p>
+  <div class="mem-carousel" id="memCarousel">
+    <div class="mem-card rev">
+      <div class="mem-av">
+        <img src="メンバー情報/前田一成.png" alt="前田一成">
       </div>
-      <div class="mem-card rev d1">
-        <div class="mem-av">
-          <img src="メンバー情報/仲森陽音.jpg" alt="仲森陽音">
-        </div>
-        <h3>仲森陽音</h3>
-        <div class="mem-role">Manager</div>
-        <p>慶應義塾大学文学部1年。団体ではマネージャーとして作業効率化とコミュニケーション改善を担当。クリエイティブチームkotohaや起業準備など、団体外でも幅広く活動中。</p>
-      </div>
-      <div class="mem-card rev d2">
-        <div class="mem-av">
-          <img src="メンバー情報/松岡木葉.jpeg" alt="松岡木葉">
-        </div>
-        <h3>松岡木葉</h3>
-        <div class="mem-role">Member</div>
-        <p>和歌山大学観光学部1年。観光を通じた地域活性化に取り組み、「きのくに線活性化プロジェクト」にも参加。地元に学べる観光列車の運行を夢見ています。</p>
-      </div>
+      <h3>前田一成</h3>
+      <div class="mem-role">Founder / 代表</div>
+      <p>大阪大学経済学部2年。新宮市出身。高校時代から地域活動に取り組み、2024年12月にThink新宮を立ち上げました。現在はパネルデータを用いた自治体の政策効果検証を研究中。</p>
     </div>
+    <div class="mem-card rev">
+      <div class="mem-av">
+        <img src="メンバー情報/仲森陽音.jpg" alt="仲森陽音">
+      </div>
+      <h3>仲森陽音</h3>
+      <div class="mem-role">Manager</div>
+      <p>慶應義塾大学文学部1年。団体ではマネージャーとして作業効率化とコミュニケーション改善を担当。クリエイティブチームkotohaや起業準備など、団体外でも幅広く活動中。</p>
+    </div>
+    <div class="mem-card rev">
+      <div class="mem-av">
+        <img src="メンバー情報/松岡木葉.jpeg" alt="松岡木葉">
+      </div>
+      <h3>松岡木葉</h3>
+      <div class="mem-role">Member</div>
+      <p>和歌山大学観光学部1年。観光を通じた地域活性化に取り組み、「きのくに線活性化プロジェクト」にも参加。地元に学べる観光列車の運行を夢見ています。</p>
+    </div>
+  </div>
+  <div class="mem-dots">
+    <button class="mem-dot active" data-idx="0" aria-label="前田一成"></button>
+    <button class="mem-dot" data-idx="1" aria-label="仲森陽音"></button>
+    <button class="mem-dot" data-idx="2" aria-label="松岡木葉"></button>
   </div>
 </section>
 
@@ -1023,6 +1043,25 @@ footer .flm{
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+  const carousel = document.getElementById('memCarousel');
+  const dots = document.querySelectorAll('.mem-dot');
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const cards = carousel.querySelectorAll('.mem-card');
+      cards[+dot.dataset.idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    });
+  });
+  carousel.addEventListener('scroll', () => {
+    const cards = Array.from(carousel.querySelectorAll('.mem-card'));
+    const cx = carousel.scrollLeft + carousel.clientWidth / 2;
+    let closest = 0, minDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.offsetLeft + c.offsetWidth / 2 - cx);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+  }, {passive:true});
 
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', async (e) => {
