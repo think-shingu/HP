@@ -426,14 +426,14 @@ header{
 /* ── MEMBERS ── */
 .members{background:var(--off);overflow:hidden;}
 .mem-carousel{
-  display:flex;gap:24px;
+  display:flex;gap:16px;
   overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:8px calc(50% - 160px) 28px;
+  padding:8px 0 28px;
   scrollbar-width:none;-webkit-overflow-scrolling:touch;
 }
 .mem-carousel::-webkit-scrollbar{display:none;}
 .mem-card{
-  flex:none;width:320px;text-align:center;
+  flex:none;width:min(320px,72vw);text-align:center;
   scroll-snap-align:center;
 }
 .mem-av{
@@ -1046,12 +1046,15 @@ footer .flm{
 
   const carousel = document.getElementById('memCarousel');
   const dots = document.querySelectorAll('.mem-dot');
-  const origCards = Array.from(carousel.querySelectorAll('.mem-card'));
-  const n = origCards.length;
+  const realCards = Array.from(carousel.querySelectorAll('.mem-card'));
+  const n = realCards.length;
+  const CLONES = 2;
 
-  // 先頭に末尾クローン、末尾に先頭クローンを追加して円環を実現
-  carousel.insertBefore(origCards[n-1].cloneNode(true), origCards[0]);
-  carousel.appendChild(origCards[0].cloneNode(true));
+  // 両側にCLONES枚ずつクローンを追加して空きなし円環を実現
+  for (let i = CLONES - 1; i >= 0; i--)
+    carousel.insertBefore(realCards[(n - CLONES + i) % n].cloneNode(true), carousel.firstChild);
+  for (let i = 0; i < CLONES; i++)
+    carousel.appendChild(realCards[i % n].cloneNode(true));
 
   function getCards() { return Array.from(carousel.querySelectorAll('.mem-card')); }
 
@@ -1072,26 +1075,26 @@ footer .flm{
     return closest;
   }
 
-  function updateDots(realIdx) {
-    dots.forEach((d, i) => d.classList.toggle('active', i === realIdx));
+  function updateDots(idx) {
+    const dot = ((idx - CLONES) % n + n) % n;
+    dots.forEach((d, i) => d.classList.toggle('active', i === dot));
   }
 
-  requestAnimationFrame(() => scrollTo(1, false));
+  requestAnimationFrame(() => scrollTo(CLONES, false));
 
   let scrollTimer;
   carousel.addEventListener('scroll', () => {
-    const idx = getClosest();
-    if (idx >= 1 && idx <= n) updateDots(idx - 1);
+    updateDots(getClosest());
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
       const idx = getClosest();
-      if (idx === 0) { scrollTo(n, false); updateDots(n - 1); }
-      else if (idx === n + 1) { scrollTo(1, false); updateDots(0); }
+      if (idx < CLONES) scrollTo(idx + n, false);
+      else if (idx >= n + CLONES) scrollTo(idx - n, false);
     }, 50);
   }, {passive:true});
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => scrollTo(i + 1, true));
+    dot.addEventListener('click', () => scrollTo(i + CLONES, true));
   });
 
   const contactForm = document.getElementById('contactForm');
