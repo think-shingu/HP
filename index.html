@@ -425,7 +425,8 @@ header{
 
 /* ── MEMBERS ── */
 .members{background:var(--off);}
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+@media(max-width:700px){.mem-grid{grid-template-columns:repeat(2,1fr);}}
 .mem-card{text-align:center;}
 .mem-av{
   width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
@@ -898,6 +899,14 @@ footer .flm{
         <h3>仲森陽音</h3>
         <div class="mem-role">Manager</div>
         <p>慶應義塾大学文学部1年。団体ではマネージャーとして作業効率化とコミュニケーション改善を担当。クリエイティブチームkotohaや起業準備など、団体外でも幅広く活動中。</p>
+      </div>
+      <div class="mem-card rev d3">
+        <div class="mem-av">
+          <img src="メンバー情報/野地哲平.jpg" alt="野地哲平">
+        </div>
+        <h3>野地哲平</h3>
+        <div class="mem-role">Member</div>
+        <p>近大新宮中学校2年。小学生に向けた体験型企画を進めながら、ラジオにも出演。いろいろなことに挑戦し続けています。</p>
       </div>
     </div>
   </div>
