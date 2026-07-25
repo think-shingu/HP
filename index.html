@@ -119,6 +119,17 @@ header{
   width:38px;height:38px;flex-direction:column;justify-content:center;align-items:center;gap:5px;
 }
 .menu-btn span{width:20px;height:1.5px;background:var(--text);border-radius:1px;transition:.3s;}
+.nav-social{display:flex;align-items:center;gap:8px;}
+.nav-social a{
+  display:flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:6px;
+  color:var(--text-s);transition:color .2s,background .2s;
+}
+.nav-social a:hover{background:var(--green-bg);}
+.nav-social a.ns-yt:hover{color:#FF0000;}
+.nav-social a.ns-ig:hover{color:#C13584;}
+.nav-social a.ns-note:hover{color:#3DAA97;}
+.nav-social svg{display:block;}
 
 /* ── HERO MOSAIC ── */
 .hero{
@@ -534,6 +545,7 @@ footer .flm{
   .nav-links.open{transform:translateX(0);}
   .nav-links a{display:block;padding:14px 4px;border-bottom:1px solid var(--bd);font-size:1rem;}
   .nav-cta{display:none;}
+  .nav-social{display:none;}
   .menu-btn{display:flex;}
   .about-wrap,.contact-wrap{grid-template-columns:1fr;}
   .media-grid{grid-template-columns:1fr;}
@@ -572,6 +584,17 @@ footer .flm{
       <li><a href="#members">メンバー</a></li>
       <li><a href="#contact">お問い合わせ</a></li>
     </ul>
+    <div class="nav-social">
+      <a href="https://www.youtube.com/@Agoradio-ThinkShingu" target="_blank" rel="noopener" aria-label="YouTube" class="ns-yt">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/t___k.s___gu" target="_blank" rel="noopener" aria-label="Instagram" class="ns-ig">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+      <a href="https://note.com/think_shingu" target="_blank" rel="noopener" aria-label="note" class="ns-note">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4 0C1.8 0 0 1.8 0 4v16c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4H4zm2.4 6.4h10.8c.4 0 .8.4.8.8s-.4.8-.8.8H6.4c-.4 0-.8-.4-.8-.8s.4-.8.8-.8zm0 4h10.8c.4 0 .8.4.8.8s-.4.8-.8.8H6.4c-.4 0-.8-.4-.8-.8s.4-.8.8-.8zm0 4h6c.4 0 .8.4.8.8s-.4.8-.8.8h-6c-.4 0-.8-.4-.8-.8s.4-.8.8-.8z"/></svg>
+      </a>
+    </div>
     <button class="menu-btn" id="menuBtn" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
