@@ -82,8 +82,10 @@ header{
 }
 .nav{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 40px;max-width:1080px;margin:0 auto;
+  padding:18px 40px;max-width:1080px;margin:0 auto;
+  position:relative;
 }
+.nav-links{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;}
 .logo{
   display:flex;align-items:center;gap:10px;
   font-size:1.15rem;font-weight:900;color:var(--text);letter-spacing:.02em;
@@ -94,9 +96,9 @@ header{
   display:flex;align-items:center;justify-content:center;
   color:#fff;font-size:.82rem;font-weight:900;letter-spacing:-.02em;
 }
-.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links{display:flex;gap:32px;list-style:none;}
 .nav-links a{
-  font-size:.87rem;font-weight:600;color:var(--text-s);
+  font-size:.95rem;font-weight:700;color:var(--text);
   padding:4px 0;position:relative;transition:color .2s;
 }
 .nav-links a::after{
