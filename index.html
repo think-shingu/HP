@@ -347,7 +347,8 @@ header{
 
 /* ── YouTube Zone ── */
 .mz-yt{background:#0F0F0F;color:#fff;}
-.mz-yt .mz-inner{grid-template-columns:1.05fr 1fr;}
+.mz-yt .mz-inner{grid-template-columns:1fr 1.05fr;}
+.mz-yt .yt-thumb{order:2;}
 .mz-yt .mz-plt-label{background:rgba(255,0,0,.15);color:#FF4444;}
 .mz-yt .mz-lead{color:rgba(255,255,255,.7);}
 .mz-yt .mz-tag{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);}
@@ -376,7 +377,8 @@ header{
 
 /* ── Instagram Zone ── */
 .mz-ig{background:var(--white);}
-.mz-ig .mz-inner{grid-template-columns:1fr 1.15fr;}
+.mz-ig .mz-inner{grid-template-columns:1.15fr 1fr;}
+.mz-ig .ig-photos{order:-1;}
 .ig-plt-label{background:linear-gradient(90deg,rgba(245,133,41,.15),rgba(193,53,132,.15));color:#C13584;}
 .ig-photos{
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
