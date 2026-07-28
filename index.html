@@ -629,8 +629,8 @@ footer .flm{
   .mosaic{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(5,1fr);}
   /* オーバーレイを少し濃くして文字を読みやすく */
   .mosaic-overlay{background:rgba(15,30,22,.58);}
-  /* カードを下寄せにして写真が上部に見える構図に */
-  .hero-body{justify-content:flex-end;padding:0 16px 72px;}
+  /* カードをヘッダー直下に配置 */
+  .hero-body{justify-content:flex-start;padding:80px 16px 0;}
   .hero-card{
     padding:22px 20px;border-radius:14px;
     background:rgba(0,0,0,.22);
@@ -639,6 +639,7 @@ footer .flm{
   .hero-lead{font-size:.85rem;line-height:1.8;margin-bottom:18px;}
   .hero-media-icons{gap:10px;margin-bottom:0;}
   .hero-media-icons a{width:42px;height:42px;border-radius:10px;}
+  .hero-scroll{display:flex;}
 }
 </style>
 </head>
