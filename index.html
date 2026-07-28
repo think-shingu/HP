@@ -611,7 +611,6 @@ footer .flm{
 @media(max-width:480px){
   .gal-grid{columns:1;}
   .mem-grid{grid-template-columns:repeat(2,1fr);}
-  .hero-card{padding:24px 20px;}
   .act-grid{grid-template-columns:1fr;}
   .ig-photos{grid-template-columns:repeat(2,1fr);}
   .mz{padding:40px 0;}
@@ -623,6 +622,22 @@ footer .flm{
   .aphoto:first-child{grid-column:auto;aspect-ratio:16/9;}
   section{padding:48px 0;}
   .section-sub{margin-bottom:32px;}
+
+  /* ── Hero mobile ── */
+  /* 写真を2列に拡大して映えるように */
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(5,1fr);}
+  /* オーバーレイを少し濃くして文字を読みやすく */
+  .mosaic-overlay{background:rgba(15,30,22,.58);}
+  /* カードを下寄せにして写真が上部に見える構図に */
+  .hero-body{justify-content:flex-end;padding:0 16px 72px;}
+  .hero-card{
+    padding:22px 20px;border-radius:14px;
+    background:rgba(0,0,0,.22);
+  }
+  .hero h1{font-size:1.65rem;line-height:1.45;margin-bottom:12px;}
+  .hero-lead{font-size:.85rem;line-height:1.8;margin-bottom:18px;}
+  .hero-media-icons{gap:10px;margin-bottom:0;}
+  .hero-media-icons a{width:42px;height:42px;border-radius:10px;}
 }
 </style>
 </head>
